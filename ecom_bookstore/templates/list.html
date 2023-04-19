@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book List</title>
+</head>
+{% block content %}
+<body style=background:lightgray;>
+    <div class="row row-cols-1 row-cols-md-4 g-4" style="margin-left:100px;">
+        {% for each in object_list %}
+        <div class="col">
+            <div class="card" style="width: 13rem" >
+                    <img src="{{ each.image_url }}" class="card-image-top" alt="..">
+                <div class="card-body">
+                    <h5 class="card-title">{{ each.title }}</h5>
+                    <p class="card-text">Rs/-: {{each.price|floatformat:2}}</p>
+                    {% if each.book_available is True %}
+                        <li class="text-primary">Available</li>
+                    {% else %}
+                        <li class="text-danger">Out of Stock !</li>
+                    {% endif %}
+                    <a href="{% url 'detail-view' each.id %}" class="btn btn-primary">View</a>
+                     <a href="{% url 'add_to_cart' each.id %}" class="btn btn-primary" style=background:white;color:black;>add to cart</a>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+<style>
+    .card{
+    position: relative;
+    transform: translate(-20px);
+    display: flex;
+
+
+    }
+</style>
+</body>
+{% endblock content %}
+</html>

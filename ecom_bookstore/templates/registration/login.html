@@ -1,0 +1,78 @@
+
+{% block title %} {% endblock title%}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<style>
+
+
+
+
+body{
+width: 400px;
+    height: 400px;
+    margin-left: 550px;
+    margin-top: 100px;
+    text-align: center;
+    background: transparent;
+    border:2px solid rgba(255, 255, 255, .5);
+    border-radius:20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    padding-top:50px;
+
+
+button{
+  background-color: #EA4C89;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:hover,
+button:focus {
+  background-color: #F082AC;
+}
+}
+
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>SignIn</h2>
+
+<form method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+  <button type="submit" class="btn btn-success">SignIn</button><br><br>
+    <p class='sign'>Don't have an account?<a href="/accounts/signup</a></p>
+     <button type="submit" class="button"><a href="/accounts/signup" class="btn btn-outline-success" role="button">Register</a></button>
+
+</form>
+
+</body>
+</html>
+
+{% endblock %}

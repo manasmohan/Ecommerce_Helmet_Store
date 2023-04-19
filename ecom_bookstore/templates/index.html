@@ -1,0 +1,104 @@
+
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        #bg{
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.btn-animated {
+            margin-top:100px;
+            margin-left:400px;
+            position: relative;
+            overflow: hidden;
+            padding: 15px 30px;
+            text-align: center;
+            background: transparent;
+    border:2px solid rgba(255, 255, 255, .5);
+    border-radius:20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            animation: moveButton 2s infinite;
+        }
+
+        @keyframes moveButton {
+            0% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(50px);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+.welcome-container {
+      text-align: center;
+      padding-top: 100px;
+      color:black;
+    }
+
+    /* Welcome message animation */
+    .welcome-message {
+
+      opacity: 0;
+      transform: translateY(50px);
+      animation-name: welcomeAnimation;
+      animation-duration: 1s;
+      animation-delay: 1s;
+      animation-fill-mode: forwards;
+    }
+
+    /* Animation keyframes */
+    @keyframes welcomeAnimation {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    </style>
+</head>
+<body id="bg" style="background-image: url('{% static '/image/peakpx (1).jpg' %}');">
+
+     <!-- Welcome message container -->
+  <div class="container welcome-container">
+    <h1 class="welcome-message">Welcome to Helmet Store!</h1>
+    <p class="welcome-message">Thank you for visiting.</p>
+  </div>
+
+  <!-- Add Bootstrap and jQuery JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    <div class="container mt-5">
+
+        <a href="{% url 'list' %}"><button class="btn btn-animated">Click Here To Explore  --></button></a>
+    </div>
+
+
+
+
+</body>
+</html>
